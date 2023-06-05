@@ -1,0 +1,10 @@
+.Four{
+    width: 83%;
+    display: inline-block;
+    vertical-align: top;
+}
+.Four img{
+    width: 250px;
+    margin: 0 auto;
+    display: block;
+}

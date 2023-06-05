@@ -1,0 +1,13 @@
+
+.Main {
+    display: inline-block;
+    width:86%;
+    margin-right: 1%;
+    height: 80%;
+  }
+ h1{
+     text-align: center;
+     color: #234456;
+     text-decoration: underline;
+     margin-bottom: 2%;
+ }

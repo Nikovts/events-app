@@ -1,0 +1,39 @@
+.Event {
+    width: 98%;
+    height: auto;
+    border: 1px solid #234465;
+    margin-bottom: 3%;
+    border-radius: 4px;
+}
+.description {
+    word-wrap: break-word;
+    padding: 0.5%;
+    font-style: italic;
+    margin-bottom: 0.5%;
+    width: 95%;
+    display: inline-block;
+    vertical-align: top;
+}
+.Event-details {
+    display: flex
+}
+.Event-data {
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    color:#234465;
+    font-weight:500;
+}
+.Event div {
+    height: auto;
+
+    margin-bottom: 0.5%;
+}
+.Event div span {
+
+
+    padding-right: 1%;
+}
+.Event img {
+    width: 15rem;
+    height: 10rem
+}

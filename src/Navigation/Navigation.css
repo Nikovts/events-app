@@ -1,0 +1,12 @@
+.Navigation{
+    width: 100%;
+    height: 14vh;
+    background-color: #234465;
+    color: white;
+    border-bottom: 2px solid #ffa000;
+    border-top: 2px solid  #ffa000;
+}
+nav .listItem  {
+    color: white;
+    text-decoration: none;
+  }
