@@ -2,24 +2,25 @@ import React from 'react';
 import './Footer.css'
 import Link from '../share/Link/Link'
 import logo from '../logo192.png'
-class Footer extends React.Component{
 
-    render(){
-        const data=['home','Event','Register',"Login",'Profile','AllEvents'];
+function Footer() {
+
+
+        const data=['Home','Event','WishList'];
         const newList=(data)=>{
-                   return data.map((el,ind)=>{let url=`/${el}`
+                   return data.map((el,ind)=>{let url=`/${el.toLowerCase()}`
                    return <Link url={url} key={ind+'footer'}>{el}</Link>})}
                 return(
-                    <nav className="Footer">
+                    <footer className="Footer">
                         <ul>
-                            <li className="listItem">
+                            {/* <li className="listItem">
                             <img src={logo} alt="my logo"/>
-                            </li>
+                            </li> */}
                            {newList(data)}
                         </ul>
 
-                    </nav>
+                    </footer>
                 )
-    }
+
 }
 export default Footer;

@@ -19,7 +19,7 @@ button {
     background : #234465;
     color: white;
     padding: 1%;
-    width: 7%;
+    width: 100%;
     border-radius: 6px;
     display: block;
     margin: 0 auto;
@@ -27,6 +27,7 @@ button {
     margin-top: 0.5%;
     border: 2px solid white;
     margin-bottom: 2%;
+    cursor: pointer;
 }
 button:hover{
     background-color: white;

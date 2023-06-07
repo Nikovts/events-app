@@ -1,0 +1,26 @@
+.wishlist {
+  padding: 0 10rem;
+}
+.wishlist-header {
+  display: flex;
+}
+.wishlist-header-title, .wishlist-data-row-item{
+  width: 12%;
+  text-align: start;
+}
+.wishlist-header-title-name, .wishlist-data-row-name{
+  width: 64%;
+  text-align: start;
+}
+.wishlist-data {
+  margin-top: 1rem;
+}
+.wishlist-data-row {
+  margin-top: 1rem;
+  display: flex;
+}
+.download-button {
+  width: 10rem;
+  margin-left: auto;
+  margin-right: 0;
+}

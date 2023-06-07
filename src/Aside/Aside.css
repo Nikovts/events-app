@@ -1,8 +1,9 @@
 .Aside {
     display: inline-block;
-    width: 12%;
-    margin-right: 1%;
-    height: 100%;
+    width: 8%;
+    margin-right: 0.5%;
+    background-color: whitesmoke;
+    height: 95%;
     vertical-align: top;
-    margin-top: 2rem;
+    padding-top: 2rem;
   }

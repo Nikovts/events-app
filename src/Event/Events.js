@@ -17,11 +17,10 @@ import { get } from "../servises/requester";
 function Events () {
   const [events, setEvents] = useState([]);
   const [searchWord, setSearchWord] = useState('');
-  const [total, setTotal] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [isRequestPending, setIsRequestPending] = useState(false);
   const [payload, setPayload] = useState({
-    size: 20,
+    size: 12,
     page: 1,
     keyword: "",
     segmentName: "",
@@ -60,16 +59,13 @@ function Events () {
     setIsRequestPending(true);
     get(payload)
     .then((events) => {
-      console.log(events._embedded.events);
       if (!events._embedded) {
         setEvents([])
       } else {
         const newEvents = events._embedded.events;
-        const newTotal = events.page.totalElements;
         const newTotalPages = events.page.totalPages;
 
         setEvents(newEvents);
-        setTotal(newTotal);
         setTotalPages(newTotalPages);
       }
     })
@@ -78,7 +74,6 @@ function Events () {
     });
   }
   useEffect(() => {
-    console.log('kkkk');
     getEvents()
   },[])
 
@@ -93,12 +88,15 @@ function Events () {
   };
 
   useEffect(() => {
+    getEvents();
+  },[payload.segmentName])
+
+  useEffect(() => {
     let toId;
     clearTimeout(id);
     toId = setTimeout(() => {
 
       if (searchWord !== payload.keyword) {
-        console.log(payload, searchWord );
         getEvents();
         setSearchWord(payload.keyword);
       }
@@ -107,7 +105,7 @@ function Events () {
     }, 1500);
 
     setId(toId);
-  },[payload])
+  },[payload.keyword])
 
   function searchOnchangeHandler(e) {
     const newValue = e.target.value;
@@ -117,13 +115,11 @@ function Events () {
       keyword: newValue,
     }))
   };
-  // render() {
-  //   const {isRequestPending, events, segmentOptions } = this.state;
 
-    return !isRequestPending ? (
-      <div className="Events">
-        <h1>All Events</h1>
-          <div className="Search">
+  return !isRequestPending ? (
+    <div className="Events">
+      <h1>{payload.segmentName === '' ? 'All' : payload.segmentName} Events</h1>
+        <div className="Search">
           <input
             type="text"
             value={payload.keyword}
@@ -141,16 +137,13 @@ function Events () {
           <div className="Select-category">
             <span className="Select-label">Choose a category</span>
             <select
-            value={payload.segmentName}
-            onChange={categoryHandleChange}
-          >
-
-            {segmentOptions.map((option) => (
-              <option key={option.name} value={option.value}>{option.name}</option>
-            ))}
-
-
-          </select>
+              value={payload.segmentName}
+              onChange={categoryHandleChange}
+            >
+              {segmentOptions.map((option) => (
+                <option key={option.name} value={option.value}>{option.name}</option>
+              ))}
+            </select>
           </div>
 
         </div>
@@ -158,12 +151,8 @@ function Events () {
         ? <div className="Event-list">
           {events.map((event) => (
             <Event
+              event={event}
               key={event.id}
-              imageURL={event.images[0].url}
-              imageAlt={event.name}
-              name={event.name}
-              date={event.dates.start.localDate}
-              time={event.dates.start.localTime}
             />
           ))}
         </div>
@@ -171,7 +160,7 @@ function Events () {
       </div>
     ) : (
       <div className="Loading">Loading...</div>
-    );
-  // }
+  );
+
 }
 export default Events;

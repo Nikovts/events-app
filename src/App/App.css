@@ -33,12 +33,12 @@ nav .listItem, footer .listItem{
 footer .listItem:nth-child(1){
   margin-left: 1%;
 }
-nav .listItem:not(:first-child){
+nav .listItem {
   padding: 2%;
   margin-top: 1.5%;
   border-top: 2px solid #ffa000;
 }
-footer .listItem:not(:last-child){
+footer .listItem {
   padding: 2%;
   margin-top: 1.5%;
   border-top: 2px solid #234465;
@@ -49,8 +49,8 @@ nav .listItem:hover{
   font-weight: bold;
 }
 footer .listItem:hover{
-  border-bottom: none;
-  border-top: 2px solid #234465;
+  border-top: none;
+  border-bottom: 2px solid #234465;
   font-weight: bold;
 }
 

@@ -3,10 +3,10 @@ import "./Aside.css";
 import Links from "../share/Link/Link";
 
 function Aside() {
-  const data = ["home", "Event", "Register", "Login", "Profile", "AllEvents"];
+  const data = ["Home", "Event", 'WishList'];
   const newList = (data) => {
     return data.map((el, ind) => {
-      let url = `/${el}`;
+      let url = `/${el.toLowerCase()}`;
       return (
         <Links url={url} key={ind + 11}>
           {el}

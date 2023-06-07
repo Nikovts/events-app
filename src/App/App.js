@@ -16,6 +16,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Four from '../404/404';
 import Logout from '../Logout/Logout'
+import WishList from '../WishList/WishList';
 
 
 
@@ -30,13 +31,13 @@ function App() {
       <Main >
       <Switch>
         <Route path="/" exact component={Events}></Route>
-        <Route path="/AllEvents" exact component={Events}></Route>
-        <Route path="/home" >WELLCOME</Route>
-        <Route path="/Event"  component={CreateEvent}></Route>
+        <Route path="/home" exact component={Events}></Route>
+        <Route path="/event"  component={CreateEvent}></Route>
         <Route path="/Profile"  component={Profile}></Route>
         <Route path="/Login"  component={Login}></Route>
         <Route path="/Register"  component={Register}></Route>
         <Route path="/Logout" component={Logout}></Route>
+        <Route path="/wishList" component={WishList}></Route>
         <Route path="*" component={Four}></Route>
       </Switch>
       </Main>

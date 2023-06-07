@@ -9,6 +9,7 @@
     justify-content: space-between;
     margin-bottom: 1rem;
     height: 2rem;
+    padding-right: 1rem
 }
 
 .Search input {
@@ -27,7 +28,12 @@
 .Event-list {
     overflow-y: scroll;
     height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+.No-data {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
 }

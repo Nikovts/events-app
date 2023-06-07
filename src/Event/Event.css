@@ -1,11 +1,11 @@
 .Event {
-    width: 98%;
+    width: 26rem;
     height: auto;
     border: 1px solid #234465;
     margin-bottom: 3%;
     border-radius: 4px;
 }
-.description {
+.Event-name {
     word-wrap: break-word;
     padding: 0.5%;
     font-style: italic;
@@ -13,15 +13,16 @@
     width: 95%;
     display: inline-block;
     vertical-align: top;
+    color:#234465;
 }
 .Event-details {
     display: flex
 }
 .Event-data {
-    margin-left: 1rem;
-    margin-right: 0.5rem;
+    margin: 0 0.5rem;
     color:#234465;
     font-weight:500;
+    width: 11rem;
 }
 .Event div {
     height: auto;
@@ -30,10 +31,25 @@
 }
 .Event div span {
 
-
     padding-right: 1%;
 }
 .Event img {
     width: 15rem;
-    height: 10rem
+    height: 11rem;
+    object-fit: cover;
+}
+
+.Event-button-add {
+    width: 90%;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 5px;
+    font-size: 1rem;
+    text-align: center;
+    color: #ffa000;;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: #234465;
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
 }
