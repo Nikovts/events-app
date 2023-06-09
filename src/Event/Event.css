@@ -1,11 +1,11 @@
-.Event {
+.event {
     width: 26rem;
     height: auto;
     border: 1px solid #234465;
     margin-bottom: 3%;
     border-radius: 4px;
 }
-.Event-name {
+.event-name {
     word-wrap: break-word;
     padding: 0.5%;
     font-style: italic;
@@ -15,31 +15,31 @@
     vertical-align: top;
     color:#234465;
 }
-.Event-details {
+.event-details {
     display: flex
 }
-.Event-data {
+.event-data {
     margin: 0 0.5rem;
     color:#234465;
     font-weight:500;
     width: 11rem;
 }
-.Event div {
+.event div {
     height: auto;
 
     margin-bottom: 0.5%;
 }
-.Event div span {
+.event div span {
 
     padding-right: 1%;
 }
-.Event img {
+.event img {
     width: 15rem;
     height: 11rem;
     object-fit: cover;
 }
 
-.Event-button-add {
+.event-button-add {
     width: 90%;
     border: 0;
     line-height: 2.5;

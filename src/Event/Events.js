@@ -3,16 +3,7 @@ import "./Events.css";
 import Event from "./Event";
 import Paginate from "../Paginate/Paginate";
 import { useState, useEffect } from 'react';
-// import {changeHandlerFactory} from "../servises/extraFunctions";
 import { get } from "../servises/requester";
-
-// function Posts () {
-//     return(
-//         <div className="Posts">
-//             <Post imageURL="./logo.svg" imageAlt="ALT" description="dhfhfhhfhfhhfhfhh" author="Nik"/>
-//         </div>
-//     )
-// }
 
 function Events () {
   const [events, setEvents] = useState([]);
@@ -40,6 +31,7 @@ function Events () {
   function paginate (pageNumber) {
     setCurrentPage(pageNumber);
   };
+
   function firstPage() {
     setCurrentPage(1);
   };
@@ -53,8 +45,8 @@ function Events () {
       ...payload,
        page: page,
     })
-    getEvents();
-  }
+  };
+
   function getEvents() {
     setIsRequestPending(true);
     get(payload)
@@ -72,10 +64,7 @@ function Events () {
     .finally(() =>{
       setIsRequestPending(false);
     });
-  }
-  useEffect(() => {
-    getEvents()
-  },[])
+  };
 
   function categoryHandleChange(e) {
     const newValue = e.target.value;
@@ -83,13 +72,11 @@ function Events () {
       ...payload,
       segmentName: newValue,
     });
-    getEvents();
-
   };
 
   useEffect(() => {
     getEvents();
-  },[payload.segmentName])
+  },[payload.segmentName, payload.page])
 
   useEffect(() => {
     let toId;
@@ -117,14 +104,14 @@ function Events () {
   };
 
   return !isRequestPending ? (
-    <div className="Events">
+    <div className="events">
       <h1>{payload.segmentName === '' ? 'All' : payload.segmentName} Events</h1>
-        <div className="Search">
+        <div className="search">
           <input
             type="text"
             value={payload.keyword}
             onChange={searchOnchangeHandler}
-            className="Search-input"
+            className="search-input"
             placeholder="Search by keyword"
           />
           <Paginate
@@ -134,8 +121,8 @@ function Events () {
             lastPage={lastPage}
             currentPage={payload.page}
           />
-          <div className="Select-category">
-            <span className="Select-label">Choose a category</span>
+          <div className="select-category">
+            <span className="select-label">Choose a category</span>
             <select
               value={payload.segmentName}
               onChange={categoryHandleChange}
@@ -148,18 +135,23 @@ function Events () {
 
         </div>
         {events.length
-        ? <div className="Event-list">
+        ? <div className="event-list">
           {events.map((event) => (
             <Event
               event={event}
+              name={event.name}
+              date={event.dates.start.localDate}
+              image={event.images[0].url}
+              time={event.dates.start.localTime}
+              location={event._embedded && event._embedded.venues[0].city.name ? event._embedded.venues[0].city.name  : ''}
               key={event.id}
             />
           ))}
         </div>
-        : <h3 className="No-data">No events found with keyword "{payload.keyword}" </h3>}
+        : <h3 className="no-data">No events found with keyword "{payload.keyword}" </h3>}
       </div>
     ) : (
-      <div className="Loading">Loading...</div>
+      <div className="loading">Loading...</div>
   );
 
 }

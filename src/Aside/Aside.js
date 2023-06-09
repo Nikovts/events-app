@@ -1,41 +1,22 @@
 import React from "react";
 import "./Aside.css";
 import Links from "../share/Link/Link";
+import menuData from "../servises/menu";
 
 function Aside() {
-  const data = ["Home", "Event", 'WishList'];
-  const newList = (data) => {
-    return data.map((el, ind) => {
-      let url = `/${el.toLowerCase()}`;
+  const newList = (menuData) => {
+    return menuData.map((el, ind) => {
       return (
-        <Links url={url} key={ind + 11}>
-          {el}
+        <Links url={el.url} key={ind + 1} className="listItem">
+          {el.name}
         </Links>
       );
     });
   };
   return (
-    <aside className="Aside">
-      <ul>{newList(data)}</ul>
+    <aside className="aside">
+      <ul>{newList(menuData)}</ul>
     </aside>
   );
 }
-
-// class Aside extends React.Component{
-
-//     render(){
-//         const data=['home','Post','Register',"Login",'Profile','AllPosts'];
-//         const newList=(data)=>{
-//                    return data.map((el,ind)=>{let url=`/${el}`
-//                    return <Links url={url} key={ind+11}>{el}</Links>})}
-//                 return(
-//                     <aside className="Aside">
-//                         <ul>
-//                            {newList(data)}
-//                         </ul>
-
-//                     </aside>
-//                 )
-//     }
-// }
 export default Aside;

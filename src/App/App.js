@@ -11,32 +11,23 @@ import {
   Route,
 } from "react-router-dom";
 import CreateEvent from'../CreateEvent/CreateEvent';
-import Profile from '../Profile/Profile';
-import Login from '../Login/Login';
-import Register from '../Register/Register';
 import Four from '../404/404';
-import Logout from '../Logout/Logout'
 import WishList from '../WishList/WishList';
 
 
 
 function App() {
-  const isLOgin=sessionStorage.getItem('authtoken')!==null
   return (
     <Router>
-    <div className="App">
-      <Navigation isLOgin={isLOgin}/>
-      <div className="Container">
+    <div className="app">
+      <Navigation/>
+      <div className="container">
       <Aside/>
       <Main >
       <Switch>
         <Route path="/" exact component={Events}></Route>
-        <Route path="/home" exact component={Events}></Route>
-        <Route path="/event"  component={CreateEvent}></Route>
-        <Route path="/Profile"  component={Profile}></Route>
-        <Route path="/Login"  component={Login}></Route>
-        <Route path="/Register"  component={Register}></Route>
-        <Route path="/Logout" component={Logout}></Route>
+        <Route path="/events" exact component={Events}></Route>
+        <Route path="/create"  component={CreateEvent}></Route>
         <Route path="/wishList" component={WishList}></Route>
         <Route path="*" component={Four}></Route>
       </Switch>

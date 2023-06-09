@@ -1,26 +1,22 @@
-import React from 'react';
-import './Footer.css'
-import Link from '../share/Link/Link'
-import logo from '../logo192.png'
+import React from "react";
+import "./Footer.css";
+import Links from "../share/Link/Link";
+import menuData from "../servises/menu";
 
 function Footer() {
-
-
-        const data=['Home','Event','WishList'];
-        const newList=(data)=>{
-                   return data.map((el,ind)=>{let url=`/${el.toLowerCase()}`
-                   return <Link url={url} key={ind+'footer'}>{el}</Link>})}
-                return(
-                    <footer className="Footer">
-                        <ul>
-                            {/* <li className="listItem">
-                            <img src={logo} alt="my logo"/>
-                            </li> */}
-                           {newList(data)}
-                        </ul>
-
-                    </footer>
-                )
-
+  const newList = (menuData) => {
+    return menuData.map((el, ind) => {
+      return (
+        <Links url={el.url} key={ind + 1} className="listItem">
+          {el.name}
+        </Links>
+      );
+    });
+  };
+  return (
+    <footer className="footer">
+      <ul>{newList(menuData)}</ul>
+    </footer>
+  );
 }
 export default Footer;
